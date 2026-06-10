@@ -152,7 +152,7 @@ export default async function TripPage({
           }}
         ></Script>
       )}
-      <div className="container mx-auto py-4 md:py-8">
+      <div className="container mx-auto py-4 md:py-8 px-4 md:px-0">
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">
           {trip.title}
         </h1>

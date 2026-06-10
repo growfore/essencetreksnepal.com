@@ -22,7 +22,7 @@ export default function ImageGallery({
   const rightCount = rightImages.length;
 
   return (
-    <div className="relative">
+    <div className="relative px-4 md:px-0">
       <Lightbox images={fullUrls} imageAlts={keywords}>
         <div>
           <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 md:max-h-[80vh] overflow-hidden rounded-sm">
