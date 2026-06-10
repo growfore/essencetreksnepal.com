@@ -251,7 +251,7 @@ export default async function TripPage({
 
               <div>
                 <h2 className="flex gap-4 items-center text-rose-900!">
-                  <LucideXCircle className="text-rose-900" /> Exlusions{" "}
+                  <LucideXCircle className="text-rose-900" /> Exclusions{" "}
                 </h2>
                 <div
                   id="exclusions"
