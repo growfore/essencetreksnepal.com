@@ -75,7 +75,10 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
         onClick={closeLightbox}
       >
         <button
-          onClick={closeLightbox}
+          onClick={(e) => {
+            e.stopPropagation();
+            closeLightbox();
+          }}
           style={{
             position: "absolute",
             top: "20px",
@@ -87,6 +90,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
             cursor: "pointer",
             padding: "10px",
             lineHeight: 1,
+            zIndex: 100,
           }}
           aria-label="Close"
         >
@@ -110,6 +114,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
                 cursor: "pointer",
                 padding: "10px",
                 lineHeight: 1,
+                zIndex: 100,
               }}
               aria-label="Previous"
             >
@@ -131,6 +136,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
                 cursor: "pointer",
                 padding: "10px",
                 lineHeight: 1,
+                zIndex: 100,
               }}
               aria-label="Next"
             >
@@ -141,7 +147,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
         <pre className="absolute hidden md:block bottom-1 bg-transparent!">
           {JSON.stringify(imageAlts[currentIndex])}
         </pre>
-        <div style={{ position: "relative", width: "100vw", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "70vw", height: "70vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
           {images.map((img, i) => (
             <div
               key={i}
@@ -162,8 +168,8 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
                 alt={imageAlts[i] || `Image ${i + 1}`}
                 loading={i === currentIndex ? "eager" : "lazy"}
                 style={{
-                  maxWidth: "100vw",
-                  maxHeight: "100vh",
+                  maxWidth: "70vw",
+                  maxHeight: "70vh",
                   objectFit: "contain",
                 }}
               />
@@ -178,6 +184,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, imageAlts, children }) => {
               top: "20px",
               color: "white",
               fontSize: "14px",
+              zIndex: 100,
             }}
           >
             {currentIndex + 1} / {images.length}
