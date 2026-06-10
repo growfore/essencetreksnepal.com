@@ -58,7 +58,7 @@ export default function ImageGallery({
                 </div>
                 <div className="hidden md:flex md:col-span-1 flex-col gap-2 overflow-hidden min-h-0">
                   {rightCount === 1 && (
-                    <div className="flex-1 overflow-hidden rounded-sm min-h-0">
+                    <div className="aspect-[4/3] overflow-hidden rounded-sm">
                       <Image
                         data-lightbox-index={1}
                         src={rightImages[0]}
@@ -73,7 +73,7 @@ export default function ImageGallery({
                     rightImages.map((url, i) => (
                       <div
                         key={url}
-                        className="flex-1 overflow-hidden rounded-sm min-h-0"
+                        className="aspect-[4/3] overflow-hidden rounded-sm"
                       >
                         <Image
                           data-lightbox-index={i + 1}
